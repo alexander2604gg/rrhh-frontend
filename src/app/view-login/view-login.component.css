@@ -1,0 +1,12 @@
+.container{
+  position: relative;
+}
+
+.status-massage {
+  position: absolute;
+  width: 15vw;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  margin: 18px;
+}
