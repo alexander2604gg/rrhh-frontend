@@ -2,6 +2,8 @@ import { AuthService } from './../auth.service';
 import { Component ,Output ,EventEmitter } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,10 @@ export class LoginComponent {
 
     @Output() loginSuccess = new EventEmitter<boolean>();
 
-    constructor(private authService: AuthService){}
+    constructor(
+      private authService: AuthService,
+      private router: Router // Inyectar Router
+    ) {}
 
     authenticate() {
 
@@ -27,6 +32,7 @@ export class LoginComponent {
       this.authService.login(credentials).pipe(
         tap((response) => {
           this.authService.setToke(response.jwt)
+          this.router.navigate(['/sidebar']);
           this.loginSuccess.emit(true);
         }),
         catchError((error) => {

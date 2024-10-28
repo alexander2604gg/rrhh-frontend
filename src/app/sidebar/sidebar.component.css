@@ -1,0 +1,16 @@
+.sidebar {
+  background-color: #002147; /* Azul oscuro */
+  color: white;
+}
+.sidebar a {
+  color: white;
+}
+.sidebar a:hover {
+  color: #a0c4ff; /* Un azul más claro para el hover */
+}
+.sidebar hr {
+  border-color: white;
+}
+.collapse ul li a {
+  color: #c9d1d9; /* Texto blanco grisáceo para los elementos colapsados */
+}

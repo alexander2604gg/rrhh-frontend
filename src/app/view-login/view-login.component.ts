@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-login',
@@ -12,5 +13,6 @@ export class ViewLoginComponent {
   handleLoginResult (isAuthenticate : boolean){
     this.state = isAuthenticate;
   }
+
 
 }
