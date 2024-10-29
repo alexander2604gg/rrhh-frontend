@@ -10,6 +10,10 @@ import { MessageComponent } from './message/message.component';
 import { CompanyLoginComponent } from './company-login/company-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TablePaginatedComponent } from './table-paginated/table-paginated.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
+import { ViewEmployeeListComponent } from './view-employee-list/view-employee-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ViewLoginComponent,
     MessageComponent,
     CompanyLoginComponent,
-    SidebarComponent
+    SidebarComponent,
+    TablePaginatedComponent,
+    EmployeeListComponent,
+    EmployeeUpdateComponent,
+    ViewEmployeeListComponent
   ],
   imports: [
     BrowserModule,
