@@ -14,6 +14,11 @@ import { TablePaginatedComponent } from './table-paginated/table-paginated.compo
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
 import { ViewEmployeeListComponent } from './view-employee-list/view-employee-list.component';
+import { ViewEmployeeUpdateComponent } from './view-employee-update/view-employee-update.component';
+import { ButtonComponent } from './button/button.component';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { ViewEmployeeRegisterComponent } from './view-employee-register/view-employee-register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { ViewEmployeeListComponent } from './view-employee-list/view-employee-li
     TablePaginatedComponent,
     EmployeeListComponent,
     EmployeeUpdateComponent,
-    ViewEmployeeListComponent
+    ViewEmployeeListComponent,
+    ViewEmployeeUpdateComponent,
+    ButtonComponent,
+    EmployeeRegisterComponent,
+    ViewEmployeeRegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

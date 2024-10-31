@@ -1,29 +1,33 @@
+import { EmployeeUpdate } from './../models/employee-update.model';
 import { catchError, tap } from 'rxjs';
 import { EmployeeService } from './../employee.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input , SimpleChanges , OnChanges } from '@angular/core';
 import { of } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employee-update',
   templateUrl: './employee-update.component.html',
   styleUrls: ['./employee-update.component.css']
 })
-export class EmployeeUpdateComponent implements OnInit {
+export class EmployeeUpdateComponent implements OnInit, OnChanges {
 
-  employeeId: string | null = null;
+  textButton: string = 'Enviar';
+  @Input() employeeId: string | null = '';
+  @Input() isDisabled: boolean = true;
   fullName: string = '';
-  phoneNumber: string = '';
+  numPhone: string = '';
   dateOfBirth: string = '';
   address: string = '';
   documentType: string = '';
   documentNumber: string = '';
 
-  constructor(private employeeService: EmployeeService, private route: ActivatedRoute) {}
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
-    this.employeeId = this.route.snapshot.paramMap.get('id');
-    if (this.employeeId) {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['employeeId'] && this.employeeId) {
       this.getDataofEmployee(parseInt(this.employeeId));
     }
   }
@@ -31,9 +35,8 @@ export class EmployeeUpdateComponent implements OnInit {
   getDataofEmployee(employeeId: number): void {
     this.employeeService.getFullInfoEmployee(employeeId).pipe(
       tap((response) => {
-        console.log(response  )
         this.fullName = response.fullName;
-        this.phoneNumber = response.numPhone;
+        this.numPhone = response.numPhone;
         this.dateOfBirth = response.dateOfBirth;
         this.address = response.address;
         this.documentType = response.documentType;
@@ -45,4 +48,26 @@ export class EmployeeUpdateComponent implements OnInit {
       })
     ).subscribe();
   }
+
+  updateEmployee () : void {
+
+    const employeeUpdate : EmployeeUpdate = {
+      numPhone : this.numPhone,
+      address : this.address
+    };
+
+    if (this.employeeId) {
+      this.employeeService.updateEmployee(parseInt(this.employeeId) , employeeUpdate).pipe(
+        tap((response) => {
+          console.log(response)
+        }),
+        catchError((error) => {
+          return of(error)
+        })
+      ).subscribe();
+    }
+
+
+  }
+
 }

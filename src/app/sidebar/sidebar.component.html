@@ -13,12 +13,12 @@
 
       <li>
           <a href="#accountCollapse" data-bs-toggle="collapse" class="nav-link text-white">
-            <i class="fas fa-user me-2"></i> Personas
+            <i class="fas fa-user me-2"></i> Empleados
           </a>
           <div class="collapse" id="accountCollapse">
               <ul class="list-unstyled ps-3">
-                  <li><a href="#" class="nav-link text-white">Ver personas</a></li>
-                  <li><a href="#" class="nav-link text-white">Registrar persona</a></li>
+                  <li><a href="#" [routerLink]="['/employeeList']" class="nav-link text-white">Ver empleados</a></li>
+                  <li><a href="#"  [routerLink]="['/nuevoEmpleado']" class="nav-link text-white">Registrar empleados</a></li>
               </ul>
           </div>
       </li>

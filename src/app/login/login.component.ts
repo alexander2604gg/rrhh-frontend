@@ -32,7 +32,7 @@ export class LoginComponent {
       this.authService.login(credentials).pipe(
         tap((response) => {
           this.authService.setToke(response.jwt)
-          this.router.navigate(['/sidebar']);
+          this.router.navigate(['/employeeList']);
           this.loginSuccess.emit(true);
         }),
         catchError((error) => {

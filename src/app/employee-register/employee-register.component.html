@@ -1,0 +1,96 @@
+<form>
+  <div class="row">
+    <!-- Name Section -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="firstName" class="form-label">Primer nombre</label>
+        <input [(ngModel)]="employee.firstName" type="text" class="form-control" id="firstName" name="firstName" placeholder="Ingresa su primer nombre">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="middleName" class="form-label">Segundo nombre</label>
+        <input [(ngModel)]="employee.middleName" type="text" class="form-control" id="middleName" name="middleName" placeholder="Ingresa su segundo nombre">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="firstSurname" class="form-label">Apellido paterno</label>
+        <input [(ngModel)]="employee.firstSurname" type="text" class="form-control" id="firstSurname" name="firstSurname" placeholder="Ingresa su apellido paterno">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="secondSurname" class="form-label">Apellido materno</label>
+        <input [(ngModel)]="employee.secondSurname" type="text" class="form-control" id="secondSurname" name="secondSurname" placeholder="Ingresa su apellido materno">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="dateOfBirth" class="form-label">Fecha de nacimiento</label>
+        <input [(ngModel)]="employee.dateOfBirth" type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="numPhone" class="form-label">Número de teléfono</label>
+        <input [(ngModel)]="employee.numPhone" type="tel" class="form-control" id="numPhone" name="numPhone" placeholder="Ingresa su número de teléfono">
+      </div>
+    </div>
+  </div>
+
+  <!-- Email & Address -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input [(ngModel)]="employee.email" type="email" class="form-control" id="email" name="email" placeholder="Ingresa su email">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="address" class="form-label">Dirección</label>
+        <input [(ngModel)]="employee.address" type="text" class="form-control" id="address" name="address" placeholder="Ingresa su dirección">
+      </div>
+    </div>
+  </div>
+
+  <!-- Document Information -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="documentTypeId" class="form-label">Tipo de documento</label>
+        <select [(ngModel)]="employee.document.documentTypeId" class="form-select" id="documentTypeId" name="documentTypeId">
+          <option selected>Selecciona</option>
+          <option value="1">Dni </option>
+          <option value="2">Carnet de extranjería</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="documentNumber" class="form-label">Número de documento</label>
+        <input [(ngModel)]="employee.document.documentNumber" type="text" class="form-control" id="documentNumber" name="documentNumber" placeholder="Ingresa su número de documento">
+      </div>
+    </div>
+  </div>
+
+  <!-- Role -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="roleId" class="form-label">Rol</label>
+        <select [(ngModel)]="employee.roleId" class="form-select" id="roleId" name="roleId">
+          <option selected>Selecciona</option>
+          <option value="2">Recursos humanos</option>
+          <option value="3">Colaborador</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <app-button [text]="textButton" (buttonClick)="registerEmployee()"></app-button>
+</form>
